@@ -1,0 +1,101 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="600"
+        Width="480" Height="600"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen"
+        x:Class="MiPresentacion.MainWindow"
+        Title="MiPresentacion"
+        Background="#F5F7FA">
+
+    <Border Padding="25">
+        <StackPanel Spacing="14">
+            <TextBlock Text="Mi primera aplicación gráfica"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       Foreground="#1E293B"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,10" />
+
+            <StackPanel Spacing="4">
+                <TextBlock Text="Nombre:"
+                           FontWeight="SemiBold"
+                           Foreground="#334155" />
+                <TextBox x:Name="txtNombre"
+                         Watermark="Ingresa tu nombre"
+                         CornerRadius="6"
+                         Padding="10,8" />
+            </StackPanel>
+
+            <StackPanel Spacing="4">
+                <TextBlock Text="Apellido:"
+                           FontWeight="SemiBold"
+                           Foreground="#334155" />
+                <TextBox x:Name="txtApellido"
+                         Watermark="Ingresa tu apellido"
+                         CornerRadius="6"
+                         Padding="10,8" />
+            </StackPanel>
+
+            <StackPanel Spacing="4">
+                <TextBlock Text="Edad:"
+                           FontWeight="SemiBold"
+                           Foreground="#334155" />
+                <TextBox x:Name="txtEdad"
+                         Watermark="Ingresa tu edad"
+                         CornerRadius="6"
+                         Padding="10,8" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        Spacing="10"
+                        HorizontalAlignment="Center"
+                        Margin="0,10,0,10">
+                <Button x:Name="btnPresentarme"
+                        Content="Presentarme"
+                        Click="BtnPresentarme_Click"
+                        Background="#2563EB"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Padding="16,8"
+                        CornerRadius="6" />
+
+                <Button x:Name="btnLimpiar"
+                        Content="Limpiar"
+                        Click="BtnLimpiar_Click"
+                        Background="#DC2626"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Padding="16,8"
+                        CornerRadius="6" />
+
+                <Button x:Name="btnCambiarSaludo"
+                        Content="Cambiar saludo"
+                        Click="BtnCambiarSaludo_Click"
+                        Background="#0D9488"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Padding="16,8"
+                        CornerRadius="6" />
+            </StackPanel>
+
+            <Border Background="White"
+                    BorderBrush="#CBD5E1"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="16"
+                    MinHeight="110">
+                <TextBlock x:Name="txtResultado"
+                           Text="Aquí se mostrará el resultado."
+                           TextWrapping="Wrap"
+                           FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center"
+                           Foreground="#64748B" />
+            </Border>
+        </StackPanel>
+    </Border>
+</Window>
