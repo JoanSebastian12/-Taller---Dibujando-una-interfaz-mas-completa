@@ -173,3 +173,24 @@ La conmutación se realiza en memoria en tiempo de ejecución conservando el est
 ### Reto adicional: Alternancia de saludo
 ![Reto Cambiar Saludo](capturas/04_reto_cambiar_saludo.png)
 
+---
+
+## 10. Pregunta de reflexión
+
+**¿Cuál es la función de MainWindow.axaml y MainWindow.axaml.cs, y cómo se relacionan mediante x:Name y los eventos Click para permitir que el usuario interactúe con la aplicación?**
+
+En este proyecto, la división entre ambos archivos funciona como separar el diseño visual de la lógica que lo hace funcionar:
+
+- **MainWindow.axaml es la cara visible (el diseño):** Aquí definimos cómo se ve la aplicación en pantalla. Usamos etiquetas para maquetar el formulario: el título, las cajas donde el usuario escribe su nombre, apellido y edad, los botones y el cuadro donde se muestra el resultado final. Este archivo se encarga únicamente de que todo esté bien ordenado y con buen aspecto visual, pero no sabe cómo validar datos ni qué responder.
+
+- **MainWindow.axaml.cs es el cerebro (la lógica):** Es el código en C# que le da vida a la ventana. Aquí programamos qué debe pasar cuando ocurren cosas en la interfaz: comprobar si alguien dejó un campo en blanco, verificar con `int.TryParse()` que la edad sea un número positivo, armar el texto con los datos de la persona o restablecer todo cuando se presiona limpiar.
+
+- **¿Cómo se conectan con `x:Name`?**
+  `x:Name` funciona como ponerle una etiqueta o nombre propio a un control visual. En el XAML bautizamos a las cajas como `txtNombre`, `txtApellido`, `txtEdad` y al bloque de salida como `txtResultado`. Gracias a ese identificador, desde C# podemos llamarlos directamente por su nombre para leer lo que la persona escribió (`txtNombre.Text`) o cambiar el mensaje y el color en pantalla (`txtResultado.Text = ...`). Sin `x:Name`, el archivo C# no tendría manera de saber a qué caja de texto nos estamos refiriendo.
+
+- **¿Cómo funcionan los eventos `Click`?**
+  El evento `Click` es el detonador de acciones. Cuando en el XAML colocamos `Click="BtnPresentarme_Click"`, le estamos diciendo al botón: *«cuando el usuario haga clic sobre ti, ve y ejecuta de inmediato el método `BtnPresentarme_Click` que está en C#»*. En ese instante se activan las validaciones, se procesan los datos y se muestra la respuesta en pantalla.
+
+En resumen: **XAML** dibuja el escenario, **C#** ejecuta las acciones, **`x:Name`** es el puente que nos permite manipular los controles desde el código, y el evento **`Click`** es la señal que le avisa al sistema que el usuario presionó un botón y que es momento de procesar la información.
+
+
